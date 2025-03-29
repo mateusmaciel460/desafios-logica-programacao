@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Base</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/d0HBZsbV/image-default.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="conteudo modelo__horizontal modelo__centralizado">
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h1 class="conteudo__titulo">Projeto Base</h1>
+
+            <div class="conteudo__grupo modelo__vertical">
+                <div class="conteudo__camada">
+                    <input type="number" id="nome" name="nome" placeholder="Digite qualquer coisa" class="conteudo__caixa-texto"/>
+                </div>
+                <div class="conteudo__camada">
+                    <select id="nome" name="nome" class="conteudo__caixa-texto">
+                        <option value="opção">Opção</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="conteudo__botoes modelo__horizontal modelo__centralizado">
+                <button class="conteudo__botao conteudo__botao--azul">
+                    Adicionar
+                </button>
+                <button class="conteudo__botao conteudo__botao--cinza" disabled>
+                    Reiniciar
+                </button>
+                <button class="conteudo__botao conteudo__botao--laranja" disabled>
+                    Sortear
+                </button>
+            </div>
+
+            <div class="conteudo__mensagem modelo__vertical modelo__centralizado">
+                <span class="conteudo__mensagem--alerta">
+                    Ocorreu um erro :(
+                </span>
+                <span class="conteudo__mensagem--comum">
+                    Mensagem padrão :)
+                </span>
+            </div>
+        </section>
+
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h2 class="conteudo__subtitulo">Subtítulo</h2>
+            <p class="conteudo__texto">
+                Palavra:  
+                <span class="conteudo__destaque">amet consectetur</span> 
+            </p>
+
+            <img src="https://i.ibb.co/d0HBZsbV/image-default.png" alt="Imagem padrão" class="conteudo__imagem conteudo__imagem--opacidade"/>
+
+            <ul class="conteudo__menu modelo__horizontal">
+                <li class="conteudo__bloco">Item 01</li>
+                <li class="conteudo__bloco">Item 02</li>
+            </ul>
+
+            <div class="conteudo__bloco modelo__vertical conteudo__espacamento">
+                <h3 class="conteudo__subtitulo-2">Nomes de pessoas</h3>
+                <p class="conteudo__texto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
