@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número Secreto</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/d0HBZsbV/image-default.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://flourishing-rolypoly-9e1d90.netlify.app/projeto-base/style.css">
+    <style>
+        .conteudo__subtitulo-2 {
+            border-bottom: 4px solid #2e2e2e;
+        }
+    </style>
+</head>
+<body>
+    <main class="conteudo modelo__horizontal modelo__centralizado">
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h1 class="conteudo__titulo">Número Secreto</h1>
+            <h3 class="conteudo__subtitulo-2">Escolha um número entre 1 e 5</h3>
+
+            <div class="conteudo__grupo">
+                <div class="conteudo__camada">
+                    <input type="number" id="chute" name="chute" placeholder="Escolha um número inteiro" class="conteudo__caixa-texto"/>
+                </div>
+            </div>
+
+            <div class="conteudo__botoes modelo__horizontal modelo__centralizado">
+                <button onclick="chutar()" id="botao-chutar" class="conteudo__botao conteudo__botao--azul">
+                    Chutar
+                </button>
+                <button onclick="reiniciar()" id="botao-reiniciar" class="conteudo__botao conteudo__botao--cinza" disabled>
+                    Reiniciar
+                </button>
+            </div>
+
+            <div class="conteudo__mensagem" id="mensagem-erro">
+                <!--  -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
