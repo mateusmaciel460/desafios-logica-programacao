@@ -86,7 +86,7 @@ body {
 }
 
 .conteudo__botao--azul {
-    background: #0000ff;
+    background: #074799;
 }
 
 .conteudo__botao--cinza {
@@ -122,12 +122,12 @@ body {
 }
 
 .conteudo__bloco {
-    border: 5px solid #0000ff;
+    border: 5px solid #074799;
     padding: 0.5rem;
 }
 
 .conteudo__imagem {
-    border: 0.5rem solid #0000ff;
+    border: 0.5rem solid #074799;
 }
 
 .conteudo__imagem--opacidade {
