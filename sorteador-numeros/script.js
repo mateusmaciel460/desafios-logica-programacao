@@ -49,7 +49,9 @@ function reiniciar() {
     document.querySelector('#botao-reiniciar').setAttribute('disabled', true);
     document.querySelector('#numero-minimo').value = '';
     document.querySelector('#numero-maximo').value = '';
+    document.querySelector('#quantidade').value = '';
 
+    elementoMensagemErro.innerHTML = '';
     elementoNumeroSorteado.textContent = 'Números sorteados: nenhum até agora';
 }
 
