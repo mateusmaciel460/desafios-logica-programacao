@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de compras</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/d0HBZsbV/image-default.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://flourishing-rolypoly-9e1d90.netlify.app/projeto-base/style.css">
+</head>
+<body>
+    <main class="conteudo modelo__horizontal modelo__centralizado">
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h1 class="conteudo__titulo">Carrinho de compras</h1>
+            
+            <div class="conteudo__grupo modelo__vertical">
+                <div class="conteudo__camada">
+                    <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade" class="conteudo__caixa-texto"/>
+                </div>
+                <div class="conteudo__camada">
+                    <select id="produto" name="produto" class="conteudo__caixa-texto">
+                        <option value="R$ 400 - Teclado">R$ 400 - Teclado</option>
+                        <option value="R$ 4000 - Notebook">R$ 4000 - Notebook</option>
+                        <option value="R$ 3200 - Celular">R$ 3200 - Celular</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="conteudo__botoes modelo__horizontal modelo__centralizado">
+                <button onclick="adicionar()" id="botao-adicionar" class="conteudo__botao conteudo__botao--azul">Adicionar</button>
+                <button onclick="reiniciar()" id="botao-reiniciar" class="conteudo__botao conteudo__botao--cinza" disabled>Reiniciar</button>
+            </div>  
+
+            <div class="conteudo__mensagem modelo__vertical modelo__centralizado" id="mensagem-erro"></div>
+        </section>
+
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h2 class="conteudo__subtitulo">Produtos adicionados</h2>
+
+            <ul class="conteudo__menu modelo__vertical" id="elemento-produto-adicionado"></ul>
+
+            <h3 class="conteudo__subtitulo-2">
+                Total a pagar: <span class="conteudo__destaque" id="elemento-preco-geral">R$ 0</span>
+            </h3>
+        </section>
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
