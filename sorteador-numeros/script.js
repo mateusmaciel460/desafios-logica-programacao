@@ -1,48 +1,43 @@
+let elementoNumerosSorteados = document.querySelector('#elemento-numeros-sorteados');
 let elementoMensagemErro = document.querySelector('#elemento-mensagem-erro');
-let elementoNumeroSorteado = document.querySelector('#elemento-numero-sorteado');
 
 function sortear() {
     let numeroMinimo = document.querySelector('#numero-minimo').value;
     let numeroMaximo = document.querySelector('#numero-maximo').value;
     let quantidade = document.querySelector('#quantidade').value;
 
-    let listaNumeros = [];
-    let numeroSorteado;
+    elementoMensagemErro.innerHTML = '';
+
     let diferenca = numeroMaximo - numeroMinimo + 1;
 
     // Validação
-    elementoMensagemErro.innerHTML = '';
-    if (quantidade > diferenca) {
-        exibirMensagemErro(`A quantidade deve igual ou menor que ${diferenca}`);
-        return;
-    }
-
     if ((numeroMinimo && numeroMaximo && quantidade) == '') {
-        exibirMensagemErro('Preencha todos os campos.');
+        exibirMensagemErro('Preencha todos os campos');
         return;
     }
 
-    for (let i = 0; i < quantidade; i++) {
-        numeroSorteado = obterNumeroAleatorio(numeroMinimo, numeroMaximo);
+    if ((quantidade > diferenca) || (quantidade <= 0)) {
+        exibirMensagemErro(`A quantidade deve ser entre ${numeroMinimo} e ${numeroMaximo}.`);
+        return;
+    }
 
-        while (listaNumeros.includes(numeroSorteado)) {
-            numeroSorteado = obterNumeroAleatorio(numeroMinimo, numeroMaximo);
+    let listaNumeros = [];
+    let numeroAleatorio;
+
+    for (let contador = 0; contador < quantidade; contador++) {
+        numeroAleatorio = obterNumeroAleatorio(numeroMinimo, numeroMaximo);
+
+        while (listaNumeros.includes(numeroAleatorio)) {
+            numeroAleatorio = obterNumeroAleatorio(numeroMinimo, numeroMaximo);
         }
 
-        listaNumeros.push(numeroSorteado);
+        listaNumeros.push(numeroAleatorio);
     }
 
-    elementoNumeroSorteado.textContent = 
-        `Números sorteados ${listaNumeros.join(', ')}`;
+    elementoNumerosSorteados.textContent = `Números sorteados: ${listaNumeros.join(', ')}`;
 
     document.querySelector('#quantidade').value = '';
     document.querySelector('#botao-reiniciar').removeAttribute('disabled');
-}
-
-function exibirMensagemErro(conteudo) {
-    elementoMensagemErro.innerHTML += `
-        <span class="conteudo__mensagem--alerta">${conteudo}</span>
-    `;
 }
 
 function reiniciar() {
@@ -51,13 +46,20 @@ function reiniciar() {
     document.querySelector('#numero-maximo').value = '';
     document.querySelector('#quantidade').value = '';
 
-    elementoMensagemErro.innerHTML = '';
-    elementoNumeroSorteado.textContent = 'Números sorteados: nenhum até agora';
+    elementoNumerosSorteados.textContent = 'Nenhum número foi sorteado :(';
 }
 
-function obterNumeroAleatorio(minimo, maximo) {
-    minimo = Math.floor(minimo);
-    maximo = Math.ceil(maximo);
+function obterNumeroAleatorio(numeroMinimo, numeroMaximo) {
+    numeroMinimo = Math.ceil(numeroMinimo);
+    numeroMaximo = Math.floor(numeroMaximo);
 
-    return parseInt(Math.random() * (maximo - minimo + 1) + minimo);
+    return parseInt(Math.random() * (numeroMaximo - numeroMinimo + 1) + numeroMinimo);
+}
+
+function exibirMensagemErro(conteudo) {
+    elementoMensagemErro.innerHTML += `
+        <span class="conteudo__mensagem--alerta">
+            ${conteudo}
+        </span>
+    `;
 }
