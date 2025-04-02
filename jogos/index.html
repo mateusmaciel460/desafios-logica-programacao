@@ -12,9 +12,9 @@
                 flex-wrap: wrap;
             }
 
-            .conteudo__camada:nth-child(1),
-            .conteudo__camada:nth-child(2) {
-                border-bottom: 4px solid #2e2e2e;
+            .conteudo__camada:nth-child(2),
+            .conteudo__camada:nth-child(3) {
+                border-top: 0.5rem solid #2e2e2e;
                 padding: 1rem 0;
             }
         }
@@ -24,29 +24,25 @@
     <main class="conteudo modelo__horizontal modelo__centralizado">
         <section class="conteudo__secao modelo__vertical modelo__centralizado">
             <h1 class="conteudo__titulo">Jogos</h1>
-            <p class="conteudo__texto" id="elemento-contador">Quantidade de jogos alugados: 0</p>
+            <p class="conteudo__texto" id="elemento-jogos-alugados">
+                Quantidade de jogos alugados: 0
+            </p>
 
             <div class="conteudo__grupo modelo__horizontal modelo__centralizado">
                 <div class="conteudo__camada modelo__vertical" id="jogo-1">
                     <img src="https://i.ibb.co/d0HBZsbV/image-default.png" alt="Imagem padrão" class="conteudo__imagem"/>
                     <h3 class="conteudo__subtitulo-2">Jogo 01</h3>
-                    <button onclick="alugar(1)" id="botao-alugar" class="conteudo__botao conteudo__botao--azul">
-                        Alugar
-                    </button>
+                    <button onclick="alugar(1)" class="conteudo__botao conteudo__botao--azul">Alugar</button>
                 </div>
                 <div class="conteudo__camada modelo__vertical" id="jogo-2">
                     <img src="https://i.ibb.co/d0HBZsbV/image-default.png" alt="Imagem padrão" class="conteudo__imagem"/>
                     <h3 class="conteudo__subtitulo-2">Jogo 02</h3>
-                    <button onclick="alugar(2)" id="botao-alugar" class="conteudo__botao conteudo__botao--azul">
-                        Alugar
-                    </button>
+                    <button onclick="alugar(2)" class="conteudo__botao conteudo__botao--azul">Alugar</button>
                 </div>
                 <div class="conteudo__camada modelo__vertical" id="jogo-3">
                     <img src="https://i.ibb.co/d0HBZsbV/image-default.png" alt="Imagem padrão" class="conteudo__imagem"/>
                     <h3 class="conteudo__subtitulo-2">Jogo 03</h3>
-                    <button onclick="alugar(3)" id="botao-alugar" class="conteudo__botao conteudo__botao--azul">
-                        Alugar
-                    </button>
+                    <button onclick="alugar(3)" class="conteudo__botao conteudo__botao--azul">Alugar</button>
                 </div>
             </div>
         </section>

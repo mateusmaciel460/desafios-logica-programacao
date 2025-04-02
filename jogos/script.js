@@ -1,40 +1,43 @@
-let elementoContador = document.querySelector('#elemento-contador');
-let contadorJogosAlugados = 0;
+let elementoJogosAlugados = document.querySelector('#elemento-jogos-alugados');
+let contadorJogos = 0;
 
 function alugar(id) {
     let jogo = document.querySelector(`#jogo-${id}`);
-    let titulo = jogo.querySelector('h3');
-    let imagem = jogo.querySelector('img');
     let botao = jogo.querySelector('button');
+    let imagem = jogo.querySelector('img');
 
-    let classeBotao = botao.classList;
-    let classeImagem = imagem.classList;
+    if (botao.classList[1] == 'conteudo__botao--azul') {
+        botao.classList.remove('conteudo__botao--azul');
+        botao.classList.add('conteudo__botao--cinza');
 
-    if (classeBotao[1] == 'conteudo__botao--azul') {
-        classeBotao.remove('conteudo__botao--azul');
-        classeBotao.add('conteudo__botao--cinza');
-        classeImagem.add('conteudo__imagem--opacidade');
+        imagem.classList.add('conteudo__imagem--opacidade');
+
         botao.textContent = 'Devolver';
-        contadorJogosAlugados++;
+        contadorJogos++;
     } else {
-        // Validação
-        let mensagem = prompt('Tem certeza que deseja devolver? (1 para sim)');
-        let validacaoMensagem = mensagem != 1 ? 'não' : 'sim';
-        let textoPadrao = `Você respondeu (${validacaoMensagem}) para devolver o jogo [${titulo.textContent}]`
-        
+
+        // (permissão)
+        let titulo = jogo.querySelector('h3').textContent;
+
+        let mensagem = parseInt(prompt(`Você deseja devolver o ${titulo}? (1 para sim) `));
+        let permissao = mensagem != 1 ? 'não' : 'sim';
+        let frasePadrao = `Você respondeu (${permissao}) para devolver o ${titulo}`;
+
         if (mensagem != 1) {
-            alert(textoPadrao);
+            alert(frasePadrao);
             return;
         } else {
-            alert(textoPadrao);
+            alert(frasePadrao);
         }
 
-        classeBotao.remove('conteudo__botao--cinza');
-        classeBotao.add('conteudo__botao--azul');
-        classeImagem.remove('conteudo__imagem--opacidade');
+        botao.classList.remove('conteudo__botao--cinza');
+        botao.classList.add('conteudo__botao--azul');
+
+        imagem.classList.remove('conteudo__imagem--opacidade');
+
         botao.textContent = 'Alugar';
-        contadorJogosAlugados--;
+        contadorJogos--;
     }
 
-    elementoContador.textContent = `Quantidade de jogos alugados: ${contadorJogosAlugados}`;
+    elementoJogosAlugados.textContent = `Quantidade de jogos alugados: ${contadorJogos}`;
 }
