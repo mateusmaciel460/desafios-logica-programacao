@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigo Secreto</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/d0HBZsbV/image-default.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://flourishing-rolypoly-9e1d90.netlify.app/projeto-base/style.css">
+    <style>
+        .conteudo {
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <main class="conteudo modelo__horizontal modelo__centralizado">
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h1 class="conteudo__titulo">Amigo secreto</h1>
+
+            <div class="conteudo__grupo">
+                <div class="conteudo__camada">
+                    <input type="text" name="nome-amigo" id="nome-amigo" placeholder="Nome do amigo secreto" class="conteudo__caixa-texto"/>
+                </div>
+            </div>
+
+            <div class="conteudo__botoes modelo__horizontal modelo__centralizado">
+                <button onclick="adicionar()" id="botao-adicionar" class="conteudo__botao conteudo__botao--azul">
+                    Adicionar
+                </button>
+                <button onclick="reiniciar()" id="botao-reiniciar" class="conteudo__botao conteudo__botao--cinza" disabled>
+                    Reiniciar
+                </button>
+                <button onclick="sortear()" id="botao-sortear" class="conteudo__botao conteudo__botao--laranja" disabled>
+                    Sortear
+                </button>
+            </div>
+
+            <div class="conteudo__mensagem modelo__vertical modelo__centralizado" id="mensagem-erro"></div>
+        </section>
+
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <div class="conteudo__bloco modelo__vertical conteudo__espacamento" id="grupo-amigo-adicionado">
+                <h2 class="conteudo__subtitulo-2">Amigos adicionados</h2>
+                <p class="conteudo__texto" id="elemento-amigos-adicionados"></p>
+            </div>
+
+            <div class="conteudo__bloco modelo__vertical conteudo__espacamento">
+                <h2 class="conteudo__subtitulo-2">Amigos sorteados</h2>
+                <p class="conteudo__texto" id="elemento-amigos-sorteados"></p>
+            </div>
+        </section>
+    </main>
+    
+    <script src="script.js" defer></script>
+</body>
+</html>
