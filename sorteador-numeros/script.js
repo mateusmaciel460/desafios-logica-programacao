@@ -17,6 +17,7 @@ function sortear() {
     }
 
     if ((quantidade > diferenca) || (quantidade <= 0)) {
+        document.querySelector('#botao-reiniciar').setAttribute('disabled', true);
         exibirMensagemErro(`A quantidade deve ser entre ${numeroMinimo} e ${numeroMaximo}.`);
         return;
     }

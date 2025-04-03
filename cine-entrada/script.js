@@ -32,7 +32,7 @@ function escolher() {
             let palavraCadeira = quantidade > 1 ? 'cadeiras disponíveis' : 'cadeira disponível';
 
             if (quantidade > bilhete.quantidade) {
-                exibirMensagemErro(`Não temos ${quantidade} ${palavraCadeira} para ${bilhete.titulo}, apenas ${bilhete.quantidade}.`);
+                exibirMensagemErro(`Não temos ${quantidade} ${palavraCadeira} para ${bilhete.titulo}, disponibilidade: ${bilhete.quantidade}.`);
             } else {
                 bilhete.quantidade -= quantidade;
             }
@@ -64,6 +64,7 @@ function reiniciar() {
         { id: 3, titulo: 'inferior', quantidade: 80, quantidadeInicial: 80 },
     ];  
 
+    mensagemErro.innerHTML = '';
     document.querySelector('#botao-reiniciar').setAttribute('disabled', true);
     exibirEntradasDisponiveis();
 }

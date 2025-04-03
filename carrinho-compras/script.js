@@ -1,8 +1,10 @@
 let elementoPrecoGeral = document.querySelector('#elemento-preco-geral');
 let elementoProdutoAdicionado = document.querySelector('#elemento-produto-adicionado');
 let elementoMensagemPadrao = document.querySelector('#elemento-mensagem-padrao');
+let elementoLimite = document.querySelector('#elemento-limite');
 let mensagemErro = document.querySelector('#mensagem-erro');
 let precoGeral = 0;
+let quantidadeLimite = 11; 
 
 function adicionar() {
     let quantidade = document.querySelector('#quantidade').value;
@@ -18,8 +20,8 @@ function adicionar() {
         return;
     }
 
-    if (quantidade <= 0 || quantidade > 10) {
-        exibirMensagemErro(`O intervalo de quantidade deve ser entre 1 e 10, [${quantidade}] não é permitido.`);
+    if (quantidade <= 0 || quantidade > quantidadeLimite) {
+        exibirMensagemErro(`O intervalo de quantidade deve ser entre 1 e ${quantidadeLimite}, [${quantidade}] não é permitido.`);
         return;
     }
 
@@ -73,3 +75,5 @@ function mensagemAvisoProduto() {
 }
 
 mensagemAvisoProduto();
+
+elementoLimite.textContent = `Limite de quantidade: ${quantidadeLimite}`;

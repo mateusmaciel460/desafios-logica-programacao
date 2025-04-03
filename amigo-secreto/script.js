@@ -38,6 +38,7 @@ function adicionar() {
 }
 
 function reiniciar() {
+    amigosAdicionados = [];
     document.querySelector('#botao-reiniciar').setAttribute('disabled', true);
     document.querySelector('#botao-sortear').setAttribute('disabled', true);
     mensagemPadrao();
