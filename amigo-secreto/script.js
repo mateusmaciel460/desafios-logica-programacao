@@ -7,7 +7,6 @@ let mensagemErro = document.querySelector('#mensagem-erro');
 function adicionar() {
     let nomeAmigo = document.querySelector('#nome-amigo').value;
 
-    // Validação
     let amigosAdicionadosMinusculo = amigosAdicionados.join(',').toLowerCase();
     let nomeAmigoMinusculo = nomeAmigo.toLowerCase();
 
@@ -23,15 +22,12 @@ function adicionar() {
         return;
     }
 
-    // Execução
-
     amigosAdicionados.push(nomeAmigo);
 
     if (amigosAdicionados.length >= 4) {
         document.querySelector('#botao-sortear').removeAttribute('disabled');
     }
 
-    // Exibição
     elementoAmigosAdicionados.textContent = `${amigosAdicionados.join(', ')}`;
 
     document.querySelector('#nome-amigo').value = '';

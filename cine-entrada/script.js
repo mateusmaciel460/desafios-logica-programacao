@@ -2,10 +2,17 @@ let elementoEntradasDisponiveis = document.querySelector('#elemento-entradas-dis
 let mensagemErro = document.querySelector('#mensagem-erro');
 
 let listaEntradasDisponiveis = [
-    { id: 1, titulo: 'superior', quantidade: 100, quantidadeInicial: 100 },
-    { id: 2, titulo: 'central', quantidade: 90, quantidadeInicial: 90 },
-    { id: 3, titulo: 'inferior', quantidade: 80, quantidadeInicial: 80 },
+    { id: 1, titulo: 'superior', quantidade: 0, quantidadeInicial: 0 },
+    { id: 2, titulo: 'central', quantidade: 0, quantidadeInicial: 0 },
+    { id: 3, titulo: 'inferior', quantidade: 0, quantidadeInicial: 0 },
 ];
+
+function exibirEntradasIniciais() {
+    listaEntradasDisponiveis.forEach((entrada) => {
+        entrada.quantidade = 100;
+        entrada.quantidadeInicial = 100;
+    });
+}
 
 function escolher() {
     let quantidade = document.querySelector('#quantidade').value;
@@ -58,18 +65,15 @@ function escolher() {
 }
 
 function reiniciar() {
-    listaEntradasDisponiveis = [
-        { id: 1, titulo: 'superior', quantidade: 100, quantidadeInicial: 100 },
-        { id: 2, titulo: 'central', quantidade: 90, quantidadeInicial: 90 },
-        { id: 3, titulo: 'inferior', quantidade: 80, quantidadeInicial: 80 },
-    ];  
-
+    exibirEntradasIniciais();
     mensagemErro.innerHTML = '';
     document.querySelector('#botao-reiniciar').setAttribute('disabled', true);
     exibirEntradasDisponiveis();
 }
 
 function exibirEntradasDisponiveis() {
+    exibirEntradasIniciais();
+
     elementoEntradasDisponiveis.innerHTML = '';
     listaEntradasDisponiveis.forEach((bilhete) => {
         elementoEntradasDisponiveis.innerHTML += `
