@@ -17,11 +17,7 @@
                     <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade" class="conteudo__caixa-texto"/>
                 </div>
                 <div class="conteudo__camada">
-                    <select id="entrada" name="entrada" class="conteudo__caixa-texto">
-                        <option value="superior">Setor superior</option>
-                        <option value="central">Setor central</option>
-                        <option value="inferior">Setor inferior</option>
-                    </select>
+                    <select id="tipo" name="tipo" class="conteudo__caixa-texto"></select>
                 </div>
             </div>
 
@@ -30,7 +26,7 @@
                 <button onclick="reiniciar()" id="botao-reiniciar" class="conteudo__botao conteudo__botao--cinza" disabled>Reiniciar</button>
             </div>
 
-            <div class="conteudo__mensagem modelo__vertical modelo__centralizado" id="mensagem-erro"></div>
+            <div class="conteudo__mensagem modelo__vertical modelo__centralizado" id="elemento-mensagem-erro"></div>
         </section>
 
         <section class="conteudo__secao modelo__vertical modelo__centralizado">

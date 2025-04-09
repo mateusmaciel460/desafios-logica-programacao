@@ -1,109 +1,113 @@
+let elementoMensagemErro = document.querySelector('#elemento-mensagem-erro');
 let elementoEntradasDisponiveis = document.querySelector('#elemento-entradas-disponiveis');
-let mensagemErro = document.querySelector('#mensagem-erro');
+let elementoTipo = document.querySelector('#tipo');
 
 let listaEntradasDisponiveis = [
-    { id: 1, titulo: 'superior', quantidade: 0, quantidadeInicial: 0 },
-    { id: 2, titulo: 'central', quantidade: 0, quantidadeInicial: 0 },
-    { id: 3, titulo: 'inferior', quantidade: 0, quantidadeInicial: 0 },
+    { titulo: 'Setor superior', quantidade: 0, quantidadeInicial: 0 },
+    { titulo: 'Setor central', quantidade: 0, quantidadeInicial: 0 },
+    { titulo: 'Setor inferior', quantidade: 0, quantidadeInicial: 0 }
 ];
 
-function exibirEntradasIniciais() {
+function escolher() {
+    let quantidade = document.querySelector('#quantidade').value;
+    let tipo = document.querySelector('#tipo').value;
+
+    elementoMensagemErro.innerHTML = '';
+
+    // Validação
+    if ((quantidade && tipo) == '') {
+        exibirMensagemErro('Preencha todos os campos!');
+        return;
+    }
+
+    if (quantidade <= 0) {
+        exibirMensagemErro(`A quantidade deve ser um número maior que 0, e não [${quantidade}]`);
+        return;
+    }
+
+    document.querySelector('#quantidade').value = '';
+
+    elementoEntradasDisponiveis.innerHTML = '';
+    listaEntradasDisponiveis.forEach((entrada) => {
+        if (entrada.titulo == tipo) {
+            let palavraCadeira = quantidade > 1 ? 'cadeiras disponíveis' : 'cadeira disponível';
+
+            if (quantidade > entrada.quantidade) {
+                exibirMensagemErro(`Não temos ${quantidade} ${palavraCadeira}, disponibilidade: ${entrada.quantidade}.`);
+            } else {
+                entrada.quantidade -= quantidade;
+            }
+        }
+
+        elementoEntradasDisponiveis.innerHTML += `
+            <li class="conteudo__bloco">
+                ${entrada.titulo}:
+                <span class="conteudo__destaque">${entrada.quantidade}</span>
+            </li>
+        `;
+    });
+
+    let somaGeralEntradas = somaListaEntrada();
+
+    if (somaGeralEntradas[0] == 0) {
+        document.querySelector('#botao-reiniciar').removeAttribute('disabled');
+    }
+}
+
+function reiniciar() {
+    document.querySelector('#botao-reiniciar').setAttribute('disabled', true);
+    document.querySelector('#quantidade').value = '';
+    elementoEntradasDisponiveis.innerHTML = '';
+    elementoMensagemErro.innerHTML = '';
+    exibirEntradasInicial();
+}
+
+function exibirTiposNaTela() {
+    listaEntradasDisponiveis.forEach((entrada) => {
+        elementoTipo.innerHTML += `
+            <option value="${entrada.titulo}">${entrada.titulo}</option>`;
+    });
+}
+
+function adicionarEntradasIniciais() {
     listaEntradasDisponiveis.forEach((entrada) => {
         entrada.quantidade = 100;
         entrada.quantidadeInicial = 100;
     });
 }
 
-function escolher() {
-    let quantidade = document.querySelector('#quantidade').value;
-    let entrada = document.querySelector('#entrada').value;
+function exibirEntradasInicial() {
+    adicionarEntradasIniciais();
 
-    // Validação
-    mensagemErro.innerHTML = '';
-
-    if ((quantidade && entrada) == '') {
-        exibirMensagemErro('Preencha todos os campos.');
-        return;
-    }
-
-    if (quantidade <= 0) {
-        exibirMensagemErro(`Quantidade deve ser um número maior que 0, e não [${quantidade}]`);
-        return;
-    }
-
-    document.querySelector('#quantidade').value = '';
-
-    elementoEntradasDisponiveis.innerHTML = '';    
-    listaEntradasDisponiveis.forEach((bilhete) => {
-        if (bilhete.titulo == entrada) {
-            let palavraCadeira = quantidade > 1 ? 'cadeiras disponíveis' : 'cadeira disponível';
-
-            if (quantidade > bilhete.quantidade) {
-                exibirMensagemErro(`Não temos ${quantidade} ${palavraCadeira} para ${bilhete.titulo}, disponibilidade: ${bilhete.quantidade}.`);
-            } else {
-                bilhete.quantidade -= quantidade;
-            }
-            
-            if (bilhete.quantidade <= 0) {
-                bilhete.quantidade = 0;
-            } 
-        }
-
+    listaEntradasDisponiveis.forEach((entrada) => {
         elementoEntradasDisponiveis.innerHTML += `
             <li class="conteudo__bloco">
-                Setor ${bilhete.titulo}: 
-                <span class="conteudo__destaque">${bilhete.quantidade}</span>
-            </li>
-        `;
+                ${entrada.titulo}:
+                <span class="conteudo__destaque">${entrada.quantidade}</span>
+            </li>`;
     });
-
-    let listaQuantidadeAtualizada = listaSomatorioEntradas();
-
-    if (listaQuantidadeAtualizada[0] == 0) {
-        document.querySelector('#botao-reiniciar').removeAttribute('disabled');
-    }
 }
 
-function reiniciar() {
-    exibirEntradasIniciais();
-    mensagemErro.innerHTML = '';
-    document.querySelector('#botao-reiniciar').setAttribute('disabled', true);
-    exibirEntradasDisponiveis();
-}
+function somaListaEntrada() {
+    let somaQuantidade = 0;
+    let somaQuantidadeInicial = 0;
+    let listaEntradasSomadas = [];
 
-function exibirEntradasDisponiveis() {
-    exibirEntradasIniciais();
-
-    elementoEntradasDisponiveis.innerHTML = '';
-    listaEntradasDisponiveis.forEach((bilhete) => {
-        elementoEntradasDisponiveis.innerHTML += `
-            <li class="conteudo__bloco">
-                Setor ${bilhete.titulo}: 
-                <span class="conteudo__destaque">${bilhete.quantidade}</span>
-            </li>
-        `;
+    listaEntradasDisponiveis.forEach((entrada) => {
+        somaQuantidade += entrada.quantidade;
+        somaQuantidadeInicial += entrada.quantidadeInicial;
     });
+
+    listaEntradasSomadas.push(somaQuantidade, somaQuantidadeInicial);
+
+    return listaEntradasSomadas;
 }
 
 function exibirMensagemErro(conteudo) {
-    mensagemErro.innerHTML = `
+    elementoMensagemErro.innerHTML += `
         <span class="conteudo__mensagem--alerta">${conteudo}</span>
     `;
 }
 
-function listaSomatorioEntradas() {
-    let somarQuantidade = 0;
-    let somarQuantidadeInicial = 0;
-    let lista = [];
-
-    listaEntradasDisponiveis.forEach((entrada) => {
-        somarQuantidade += entrada.quantidade;
-        somarQuantidadeInicial += entrada.quantidadeInicial;
-    });
-
-    lista.push(somarQuantidade, somarQuantidadeInicial);
-    
-    return lista;
-}
-
-exibirEntradasDisponiveis();
+exibirEntradasInicial();
+exibirTiposNaTela();
