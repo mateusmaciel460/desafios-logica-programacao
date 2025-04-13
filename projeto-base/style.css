@@ -39,9 +39,11 @@ a {
 }
 
 .conteudo__secao {
-    padding: 1rem;
+    padding: 2rem;
     gap: 2.5rem;
     width: 50%;
+    border: 2px solid #2e2e2e;
+    margin: 1rem;
 }
 
 .conteudo__titulo {
@@ -86,7 +88,8 @@ a {
     cursor: pointer;
 }
 
-.conteudo__botao:disabled {
+.conteudo__botao:disabled,
+.conteudo__caixa-texto:disabled {
     cursor: not-allowed;
     opacity: 0.5;
 }
@@ -114,12 +117,17 @@ a {
     background: #ff0000;
 }
 
-.conteudo__mensagem--comum {
-    background: #188fb7;
+.conteudo__mensagem--padrao {
+    background: #2e2e2e;
 }
 
-.conteudo__espacamento {
-    width: 70%;
+.conteudo__mensagem-rotacao {
+    animation-duration: 1s;
+    animation-name: aparecerMensagem;
+}
+
+.conteudo__mensagem--comum {
+    background: #188fb7;
 }
 
 .conteudo__menu {
@@ -139,6 +147,16 @@ a {
 .conteudo__imagem--opacidade {
     cursor: not-allowed;
     opacity: 0.5;
+}
+
+@keyframes aparecerMensagem {
+    from {
+      width: 700px;
+    }
+  
+    to {
+      width: 100%;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -166,5 +184,18 @@ a {
 
     .conteudo__espacamento {
         width: auto;
+    }
+
+    /* Padrão de textos */
+    .conteudo__titulo {
+        font-size: 2rem;
+    }
+
+    .conteudo__subtitulo {
+        font-size: 1.8rem;
+    }
+
+    .conteudo__subtitulo-2 {
+        font-size: 1.6rem;
     }
 }
