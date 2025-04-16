@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteador de Números</title>
     <link rel="shortcut icon" href="https://i.ibb.co/d0HBZsbV/image-default.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://flourishing-rolypoly-9e1d90.netlify.app/projeto-base/style.css">
+    <link rel="stylesheet" href="../projeto-base/style.css">
+    <style>
+        .conteudo__subtitulo-2 {
+             border-bottom: 4px solid #2e2e2e;
+         }
+ 
+         .conteudo__bloco {
+             padding: 1rem 2rem;
+         }
+     </style>
 </head>
 <body>
     <main class="conteudo modelo__horizontal modelo__centralizado">
@@ -14,13 +23,20 @@
 
             <div class="conteudo__grupo modelo__vertical">
                 <div class="conteudo__camada">
-                    <input type="number" id="numero-minimo" name="numero-minimo" placeholder="Número mínimo" class="conteudo__caixa-texto"/>
+                    <select id="padrao-escolhido" name="padrao-escolhido" class="conteudo__caixa-texto">
+                        <option value="0">Normal</option>
+                        <option value="1">Números Pares</option>
+                        <option value="2">Números ímpares</option>
+                    </select>   
                 </div>
                 <div class="conteudo__camada">
-                    <input type="number" id="numero-maximo" name="numero-maximo" placeholder="Número máximo" class="conteudo__caixa-texto"/>
+                    <input type="number" id="numero-minimo" name="numero-minimo" placeholder="Número mínimo" value="1" class="conteudo__caixa-texto"/>
                 </div>
                 <div class="conteudo__camada">
-                    <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade" class="conteudo__caixa-texto"/>
+                    <input type="number" id="numero-maximo" name="numero-maximo" placeholder="Número máximo" value="10" class="conteudo__caixa-texto"/>
+                </div>
+                <div class="conteudo__camada">
+                    <input type="number" value="5" id="quantidade" name="quantidade" placeholder="Quantidade" class="conteudo__caixa-texto"/>
                 </div>
             </div>
 
@@ -33,16 +49,22 @@
                 </button>
             </div>
 
+            <div class="conteudo__mensagem modelo__vertical modelo__centralizado" id="elemento-mensagem-erro"></div>
+        </section>
+
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h2 class="conteudo__subtitulo">Números sorteados: </h2>
+
             <div class="conteudo__mensagem modelo__vertical modelo__centralizado">
                 <span class="conteudo__mensagem--comum" id="elemento-numeros-sorteados">
                     Nenhum número foi sorteado :(
                 </span>
-
-               <div class="conteudo__mensagem modelo__vertical modelo__centralizado" id="elemento-mensagem-erro"></div>
             </div>
+
+            <div class="conteudo__mensagem modelo__horizontal modelo__centralizado" id="elemento-numeros-possiveis"></div>
         </section>
     </main>
 
-    <script src="script.js" defer></script>
+    <script src="script.js" type="text/javascript"></script>
 </body>
 </html>

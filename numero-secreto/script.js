@@ -93,7 +93,6 @@ function obterNumeroSecreto() {
         return obterNumeroSecreto();
     } else {
         listaNumeros.push(numeroSorteado);
-        console.log(listaNumeros);
         return numeroSorteado;
     }
 }
