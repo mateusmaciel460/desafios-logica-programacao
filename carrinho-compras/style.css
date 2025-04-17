@@ -1,0 +1,28 @@
+.conteudo__secao:nth-child(2) {
+    width: 65%;
+}
+
+.conteudo__secao:nth-child(2) .conteudo__camada {
+    flex-wrap: wrap;
+}
+
+span {
+    padding: 0.4rem;
+}
+
+#elemento-produtos-adicionados {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (max-width: 1024px) {
+    .conteudo__secao:nth-child(2) {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 672px) {
+    #elemento-produtos-adicionados {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
