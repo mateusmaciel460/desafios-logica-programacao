@@ -1,0 +1,31 @@
+.conteudo__secao {
+    gap: 1.3rem;
+    padding: 0.3rem;
+    border: none;
+    width: 100%;
+}
+
+.conteudo__grupo span {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+button {
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .conteudo__grupo {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 711px) {
+    .conteudo__camada:nth-child(2),
+    .conteudo__camada:nth-child(3) {
+        border-top: 0.5rem solid #2e2e2e;
+        padding: 1rem 0;
+    }
+}
