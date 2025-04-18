@@ -1,0 +1,35 @@
+.conteudo__cadeiras {
+    flex-wrap: wrap;
+}
+
+.borda__superior {
+    border-top: 5px solid #2e2e2e;
+    padding: 0.5rem 0;
+}
+
+.cadeiras__disponiveis {
+    cursor: pointer;
+}
+
+.conteudo__cinza {
+    background: #2e2e2e;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#formulario {
+    gap: 1.5rem;
+}
+
+.conteudo__comprador {
+    color: #FFFFFF;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+}
+
+.conteudo__destaque-especial {
+    background: #2e2e2e;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    border: 2px solid #FFFFFF;
+}

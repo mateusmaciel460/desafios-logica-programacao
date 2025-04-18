@@ -6,33 +6,48 @@
     <title>Cine - Entrada</title>
     <link rel="shortcut icon" href="https://i.ibb.co/d0HBZsbV/image-default.png" type="image/x-icon">
     <link rel="stylesheet" href="https://flourishing-rolypoly-9e1d90.netlify.app/projeto-base/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main class="conteudo modelo__horizontal modelo__centralizado">
         <section class="conteudo__secao modelo__vertical modelo__centralizado">
-            <h1 class="conteudo__titulo">Cine - Entrada</h1>
+            <h3 class="conteudo__subtitulo-2">Cine - Entrada</h3>
+
+            <p class="conteudo__texto">
+                Preço da compra: 
+                R$ <span class="conteudo__destaque" id="elemento-preco-compra">0</span>
+            </p>
+
+            <div class="conteudo__grupo modelo__horizontal modelo__centralizado conteudo__cadeiras" id="elemento-cadeiras-disponiveis"></div>
+
+            <p class="conteudo__texto">
+                Preço do ingresso: R$
+                <span class="conteudo__destaque-especial" id="elemento-preco-ingresso">35</span>
+            </p>
+        </section>
+
+        <section class="conteudo__secao modelo__vertical modelo__centralizado" id="formulario">
+            <h3 class="conteudo__subtitulo-2">Formulário de compra</h3>
 
             <div class="conteudo__grupo modelo__vertical">
                 <div class="conteudo__camada">
-                    <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade" class="conteudo__caixa-texto"/>
-                </div>
-                <div class="conteudo__camada">
-                    <select id="tipo" name="tipo" class="conteudo__caixa-texto"></select>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" class="conteudo__caixa-texto"/>
                 </div>
             </div>
 
             <div class="conteudo__botoes modelo__horizontal modelo__centralizado">
-                <button onclick="escolher()" id="botao-escolher" class="conteudo__botao conteudo__botao--azul">Escolher</button>
-                <button onclick="reiniciar()" id="botao-reiniciar" class="conteudo__botao conteudo__botao--cinza" disabled>Reiniciar</button>
+                <button onclick="comprar()" id="botao-compra" class="conteudo__botao conteudo__botao--azul" disabled>Comprar</button>
+                <button class="conteudo__botao conteudo__botao--cinza" id="botao-reiniciar" disabled>Reiniciar</button>
             </div>
 
-            <div class="conteudo__mensagem modelo__vertical modelo__centralizado" id="elemento-mensagem-erro"></div>
-        </section>
+            <div class="borda__superior conteudo__camada">
+                <p class="conteudo__texto">
+                    Lugares reservados: 
+                    <span class="conteudo__destaque" id="elemento-lugares-reservados">Nenhum</span>
+                </p>
+            </div>
 
-        <section class="conteudo__secao modelo__vertical modelo__centralizado">
-            <h2 class="conteudo__subtitulo">Entradas disponíveis</h2>
-
-            <ul class="conteudo__menu modelo__vertical" id="elemento-entradas-disponiveis"></ul>
+            <div class="conteudo__comprador conteudo__camada" id="elemento-compradores"></div>
         </section>
     </main>
 
