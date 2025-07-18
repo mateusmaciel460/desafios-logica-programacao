@@ -1,0 +1,122 @@
+@import url('./modelo.css');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    color: #FFFFFF;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.conteudo {
+    padding: 2rem 0;
+    justify-content: space-around;
+}
+
+.conteudo__secao {
+    padding: 1rem 2rem;
+    gap: 2rem;
+    width: 50%;
+}
+
+.conteudo__titulo {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.conteudo__subtitulo {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.conteudo__texto {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.conteudo__destaque {
+    color: #0969d1;
+    font-weight: bold;
+}
+
+.conteudo__caixa-texto {
+    background: #000000;
+    border: 0.2rem solid #FFFFFF;
+    border-radius: 0.5rem;
+    color: #FFFFFF;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    outline: none;
+    width: 100%;
+}
+
+.conteudo__botao {
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.conteudo__botao:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.conteudo__mensagem {
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+
+.conteudo__mensagem--alerta {
+    animation: animacaoAparecerMensagem;
+    animation-duration: 1s;
+}
+
+.conteudo__imagem {
+    border: 0.5rem solid #023f91;
+}
+
+.conteudo__imagem-opacidade {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.conteudo__caixa {
+    border: 0.3rem solid #FFFFFF;
+    border-radius: 0.5rem;
+    font-size: 2.1rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+    .conteudo {
+        flex-direction: column;
+    }
+
+    .conteudo__secao {
+        border-bottom: 0.5rem solid #2e2e2e;
+        padding: 2rem;
+        width: 100%;
+    }
+}
+
+@keyframes animacaoAparecerMensagem {
+    to {
+        width: 400px;
+    }
+
+    from {
+        width: 700px;
+    }
+}
