@@ -14,6 +14,10 @@ body {
     font-weight: 400;
 }
 
+a {
+    text-decoration: none;
+}
+
 .conteudo {
     padding: 2rem 0;
     justify-content: space-around;
