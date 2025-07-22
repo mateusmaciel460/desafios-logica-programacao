@@ -48,7 +48,7 @@ function validacaoCampo(chute) {
     document.querySelector('#chute').value = '';
     
     if (isNaN(chute)) {
-        exibirMensagemAlerta('vermelho', 'alerta', 'Preencha corretamente todos os campos.');
+        exibirMensagemAlerta('vermelho', 'alerta', 'Preencha corretamente todos os campos');
         return false;
     }
 
@@ -63,7 +63,7 @@ function validacaoCampo(chute) {
 function exibirMensagemAlerta(cor, tipo, texto) {
     elementoMensagemAlerta.innerHTML = `
         <span class="conteudo__mensagem modelo__cor-${cor} conteudo__mensagem--${tipo}">
-            ${texto}
+            ${texto}.
         <span/>
     `;
 }

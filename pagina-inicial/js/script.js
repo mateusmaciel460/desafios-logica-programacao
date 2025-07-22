@@ -1,6 +1,7 @@
 const elementoProjetos = document.querySelector('#elementos-projetos');
 const listaProjetos = [
-    { id: 1, titulo: "Projeto Base" }
+    { id: 1, titulo: "Projeto Base" }, 
+    { id: 2, titulo: "Número Secreto" }
 ];
 
 function exibirProjetosNaTela() {
@@ -14,7 +15,8 @@ function exibirProjetosNaTela() {
 }
 
 function retornarTagProjeto(texto) {
-    return texto.toLowerCase().replace(" ", "-");
+    return texto.normalize('NFD').
+        replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(" ", "-");
 }
 
 exibirProjetosNaTela();
