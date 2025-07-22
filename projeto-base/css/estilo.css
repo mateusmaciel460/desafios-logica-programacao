@@ -35,7 +35,7 @@ a {
 }
 
 .conteudo__subtitulo {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 600;
 }
 
@@ -98,7 +98,7 @@ a {
 .conteudo__caixa {
     border: 0.3rem solid #FFFFFF;
     border-radius: 0.5rem;
-    font-size: 2.1rem;
+    font-size: 2.5rem;
     padding: 0.5rem 1rem;
     font-weight: bold;
 }
