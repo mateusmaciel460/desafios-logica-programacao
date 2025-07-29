@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras | Desafios de Lógica de Programação</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/Z6xHL1hb/imagem-ponto-interrogacao.png" type="image/x-icon">
+    <link rel="stylesheet" href="../projeto-base/css/estilo.css">
+    <style>
+        .conteudo {
+            align-items: start;
+        }
+
+        .conteudo__secao:nth-child(2) {
+            width: 70%;
+        }
+
+        .produto-adicionado {
+            border-top: 0.5rem solid #2e2e2e;
+            padding: 1rem 0;
+            width: 100%;
+        }
+        .conteudo__texto-personalizado {
+            font-size: 1.5rem;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .conteudo__secao:nth-child(2) {
+                width: 100%;
+            }
+
+            .produto-adicionado {
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="conteudo modelo__horizontal modelo__centralizado">
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h1 class="conteudo__titulo">Carrinho de Compras</h1>
+
+            <div class="modelo__vertical">
+                <div>
+                    <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade" class="conteudo__caixa-texto"/>
+                </div>
+
+                <div>
+                    <select id="opcoes" name="opcoes" class="conteudo__caixa-texto"></select>
+                </div>
+            </div>
+
+            <div class="modelo__horizontal modelo__centralizado modelo__quebra">
+                <button onclick="adicionar()" id="botao-adicionar" class="conteudo__botao modelo__cor-azul">Adicionar</button>
+            </div>
+
+            <div class="conteudo__mensagens modelo__vertical modelo__centralizado" id="elemento-mensagem-aviso"></div>
+        </section>
+
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h2 class="conteudo__titulo">
+                Total: R$ <span class="conteudo__destaque" id="elemento-preco-geral">0</span>
+            </h2>
+
+            <div class="modelo__horizontal modelo__centralizado modelo__quebra" id="elemento-lista-produtos"></div>
+
+            <div class="produto-adicionado modelo__horizontal modelo__centralizado modelo__quebra" id="elemento-adicionar-produto"></div>
+        </section>
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
