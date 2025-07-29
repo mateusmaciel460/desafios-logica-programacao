@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra de Ingressos | Desafios de Lógica de Programação</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/Z6xHL1hb/imagem-ponto-interrogacao.png" type="image/x-icon">
+    <link rel="stylesheet" href="../projeto-base/css/estilo.css">
+    <style>
+        .lista__compras {
+            border-top: 0.3rem solid #FFFFFF;
+            padding: 1rem 0;
+            width: 100%;
+        }
+
+        .conteudo__caixa {
+            cursor: pointer;
+        }
+
+        .cadeiras__reservada .modelo__cor-cinza {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <main class="conteudo modelo__horizontal modelo__centralizado">
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <div class="conteudo__mensagens modelo__vertical modelo__centralizado" id="elemento-mensagem-aviso"></div>
+
+            <h1 class="conteudo__titulo">Compra de Ingressos</h1>
+
+            <div class="modelo__vertical modelo__centralizado">
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" class="conteudo__caixa-texto"/>
+            </div>
+
+            <div class="modelo__horizontal modelo__centralizado modelo__quebra">
+                <button onclick="comprarIngresso()" id="botao-adicionar" class="conteudo__botao modelo__cor-azul">Comprar</button>
+            </div>
+
+            <div class="modelo__vertical modelo__centralizado">
+                <p class="conteudo__texto">
+                    <span class="conteudo__destaque" id="elemento-assento-escolhido">Nenhum assento escolhido.</span>
+                </p>
+            </div>
+
+            <div class="lista__compras modelo__horizontal modelo__centralizado modelo__quebra" id="elemento-ingresso-comprado">
+                <p class="conteudo__texto">Nenhum ingresso comprado.</p>
+            </div>
+        </section>
+
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h2 class="conteudo__subtitulo">Reserve já</h2>
+            <p class="conteudo__texto">
+                Preço da compra: R$ 
+                <span class="conteudo__destaque" id="elemento-preco-compra">0</span>
+            </p>
+
+            <div class="cadeiras__reservada modelo__horizontal modelo__centralizado modelo__quebra" id="elemento-cadeira-reservada"></div>
+
+            <p class="conteudo__texto">
+                Preço do ingresso: R$
+                <span class="conteudo__destaque" id="elemento-preco-ingresso">25</span>
+            </p>
+        </section>
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
