@@ -15,6 +15,7 @@ body {
 
 .conteudo {
     padding: 1rem;
+    align-items: start;
     justify-content: space-evenly;
 }
 
@@ -46,7 +47,8 @@ body {
 
 .conteudo__tag {
     border-radius: 0.5rem;
-    padding: 0.4rem;
+    font-size: 1rem;
+    padding: 0.5rem;
 }
 
 .conteudo__caixa-texto {
