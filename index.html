@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial | Desafios de Lógica de Programação</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/Z6xHL1hb/imagem-ponto-interrogacao.png" type="image/x-icon">
+    <link rel="stylesheet" href="projeto-base/css/estilo.css">
+    <style>
+        .conteudo__secao {
+            width: 100%;
+        }
+
+        .conteudo__caixa {
+            font-size: 3rem;
+        }
+
+        .projetos {
+            border: 0.3rem solid #2e2e2e;
+            padding: 1rem;
+        }
+
+        .projeto {
+            padding: 1rem;
+            border: 0.3rem solid #fefefe;
+            background: #171515;
+        }
+
+        .modelo__bloco {
+            padding: 1rem;
+        }
+
+        @media screen and (max-width: 665px) {
+            .projeto {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="conteudo modelo__vertical modelo__centralizado">
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h1 class="conteudo__titulo">Desafios de Lógica de Programação</h1>
+
+            <div class="projetos modelo__horizontal modelo__centralizado modelo__quebra" id="elemento-projetos"></div>
+        </section>
+    </main>
+
+    <footer class="modelo__vertical modelo__centralizado modelo__bloco">
+        <p class="conteudo__texto">
+            Desenvolvido por
+            <span class="conteudo__destaque">@mateusmaciel460</span>
+        </p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
