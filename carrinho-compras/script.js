@@ -22,9 +22,7 @@ function adicionar() {
 
     if (!validaCampo(quantidade, produto)) return;
     
-    exibirOperacaoPrecoProduto(precoProduto, quantidade);
-    atualizarListaProduto(quantidade, nomeProduto, codigoProduto);
-    exibirElementoAdicionarProduto(quantidade, nomeProduto, precoProduto);
+    atualizarListaProduto(quantidade, nomeProduto, codigoProduto, precoProduto);
 }
 
 function exibirOperacaoPrecoProduto(precoProduto, quantidade) {
@@ -34,7 +32,7 @@ function exibirOperacaoPrecoProduto(precoProduto, quantidade) {
     elementoPrecoGeral.innerHTML = precoGeral;
 }
 
-function atualizarListaProduto(quantidade, nomeProduto, codigoProduto) {
+function atualizarListaProduto(quantidade, nomeProduto, codigoProduto, precoProduto) {
     let verificarQuantidade = quantidade > 1 ? 'quantidades disponíveis' : 'quantidade disponível';
 
     listaProdutos.forEach((produto) => {
@@ -43,6 +41,8 @@ function atualizarListaProduto(quantidade, nomeProduto, codigoProduto) {
                 exibirMensagemAviso('alerta', 'vermelha', `Não temos ${quantidade} ${verificarQuantidade} para o produto ${nomeProduto}`);
                 return false;
             } else {
+                exibirElementoAdicionarProduto(quantidade, nomeProduto, precoProduto);
+                exibirOperacaoPrecoProduto(precoProduto, quantidade);
                 produto.quantidade -= quantidade;
             }
 
