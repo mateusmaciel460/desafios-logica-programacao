@@ -1,0 +1,16 @@
+.projeto {
+    border: 0.4rem solid #2e2e2e;
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.conteudo__botao:hover {
+    background: #cecece;
+    color: #2e2e2e;
+}
+
+@media screen and (max-width: 469px) {
+    .projeto {
+        width: 100%;
+    }
+}

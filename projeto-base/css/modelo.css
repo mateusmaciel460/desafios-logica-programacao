@@ -1,0 +1,40 @@
+.modelo__horizontal {
+    display: flex;
+    gap: 1rem;
+}
+
+.modelo__vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modelo__centralizado {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.modelo__quebra {
+    flex-wrap: wrap;
+}
+
+.modelo__cor-azul {
+    background: #023f91;
+}
+
+.modelo__cor-cinza {
+    background: #2e2e2e;
+}
+
+.modelo__cor-laranja {
+    background: #ff4500;
+}
+
+.modelo__cor-vermelha {
+    background: #ec0505;
+}
+
+.modelo__cor-verde {
+    background: #0e6e0e;
+}

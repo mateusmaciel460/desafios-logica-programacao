@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Projeto Base | Desafios de Lógica de Programação</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/Z6xHL1hb/imagem-ponto-interrogacao.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <main class="conteudo modelo__horizontal modelo__centralizado">
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h1 class="conteudo__titulo">Projeto Base</h1>
+            
+            <div class="modelo__vertical modelo__centralizado">
+                <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade" class="conteudo__caixa-texto"/>
+
+                <select id="opcoes" name="opcoes" class="conteudo__caixa-texto">
+                    <option value="1">Opção 01</option>
+                    <option value="2">Opção 02</option>
+                </select>
+            </div>
+
+            <div class="modelo__horizontal modelo__centralizado modelo__quebra">
+                <button class="conteudo__botao modelo__cor-azul">
+                    Adicionar
+                </button>
+                <button class="conteudo__botao modelo__cor-cinza" disabled>
+                    Reiniciar
+                </button>
+                <button class="conteudo__botao modelo__cor-laranja" disabled>
+                    Sortear
+                </button>
+            </div>
+
+            <div class="conteudo__mensagens modelo__vertical modelo__centralizado">
+                <span class="conteudo__mensagem conteudo__alerta modelo__cor-vermelha">
+                    Ocorreu um erro.
+                </span>
+                <span class="conteudo__mensagem conteudo__sucesso modelo__cor-verde">
+                    Mensagem de sucesso padrão
+                </span>
+            </div>
+        </section>
+
+        <section class="conteudo__secao modelo__vertical modelo__centralizado">
+            <h2 class="conteudo__subtitulo">Projeto Base (1.1)</h2>
+            <p class="conteudo__texto">
+                Desenvolvido por 
+                <span class="conteudo__destaque">@mateusmaciel460</span>
+            </p>
+
+            <p class="conteudo__texto">
+                Isso é uma 
+                <span class="conteudo__tag modelo__cor-verde">tag</span>
+            </p>
+
+            <div class="modelo__vertical">
+                <img src="https://i.ibb.co/Z6xHL1hb/imagem-ponto-interrogacao.png" alt="Imagem com um ponto interrogação centralizado" class="conteudo__imagem conteudo__imagem-opacidade"/>
+            </div>
+
+            <div class="modelo__horizontal modelo__quebra modelo__centralizado">
+                <div class="conteudo__caixa modelo__cor-vermelha">01</div>
+                <div class="conteudo__caixa modelo__cor-cinza">02</div>
+                <div class="conteudo__caixa modelo__cor-verde">03</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
