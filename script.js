@@ -2,7 +2,8 @@ const elementoProjetos = document.querySelector('#elemento-projetos');
 const listaProjetos = [
     { id: 1, titulo: 'Projeto Base' },
     { id: 2, titulo: 'Número Secreto' },
-    { id: 3, titulo: 'Sorteador de Números' }
+    { id: 3, titulo: 'Sorteador de Números' },
+    { id: 4, titulo: 'Aluguel de Jogos' }
 ];
 
 function exibirProjetosNaTela() {
