@@ -3,7 +3,8 @@ const listaProjetos = [
     { id: 1, titulo: 'Projeto Base' },
     { id: 2, titulo: 'Número Secreto' },
     { id: 3, titulo: 'Sorteador de Números' },
-    { id: 4, titulo: 'Aluguel de Jogos' }
+    { id: 4, titulo: 'Aluguel de Jogos' },
+    { id: 5, titulo: 'Carrinho de Compras' }
 ];
 
 function exibirProjetosNaTela() {
