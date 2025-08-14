@@ -24,8 +24,8 @@ function comprarIngresso() {
     });
 
     protegerCadeirasCompradas(listaCadeirasAdicionadas, nomeComprador);
-    listaCadeirasAdicionadas = [];
     exibirCompra();
+    listaCadeirasAdicionadas = [];
     verificarListaCadeiras();
 
     precoCompra = 0;
@@ -34,6 +34,7 @@ function comprarIngresso() {
 
 function reiniciar() {
     listaCadeirasCompradas = [];
+    listaIngressoCompra = [];
     document.querySelector('#botao-comprar').removeAttribute('disabled');
     document.querySelector('#botao-reiniciar').setAttribute('disabled', true);
     exibirCadeirasDisponíveisNaTela();
@@ -72,16 +73,14 @@ function exibirMensagemAviso(tipo, cor, texto) {
     `;
 }
 
-function protegerCadeirasCompradas(listaCadeirasAdicionadas, nomeComprador) {
+function protegerCadeirasCompradas(listaCadeirasAdicionadas) {
     listaCadeirasAdicionadas.forEach((cadeira) => {
-        let elementoCadeira = document.querySelector(`#elemento-cadeira-${cadeira}`);
-        let classeElementoCadeira = elementoCadeira.classList;
-
-        classeElementoCadeira.add('modelo__cor-cinza', 'conteudo__bloqueio');
-        classeElementoCadeira.remove('modelo__cor-vermelha');
-
-        elementoCadeira.removeAttribute('onclick');
-        elementoCadeira.setAttribute('title', nomeComprador);
+        escolhendoCadeiras(
+            cadeira, 
+            'modelo__cor-vermelha',
+            'modelo__cor-cinza',
+            'indisponivel'
+        );
     });
 }
 
@@ -105,7 +104,7 @@ function exibirCadeirasDisponíveisNaTela() {
 
     for (let i = 1; i <= quantidadeCadeiras; i++) {
         elementoCadeiras.innerHTML += `
-            <div onclick="adicionarCadeira(${i})" class="conteudo__caixa modelo__cor-verde" id="elemento-cadeira-${i}">
+            <div onclick="adicionarCadeira(${i})" class="cadeira conteudo__caixa modelo__cor-verde" id="elemento-cadeira-${i}">
                 0${i}
             </div>
         `;
@@ -115,6 +114,7 @@ function exibirCadeirasDisponíveisNaTela() {
 function adicionarCadeira(cadeiraEscolhida) {
     listaCadeirasAdicionadas.push(cadeiraEscolhida);
     listaCadeirasCompradas.push(cadeiraEscolhida);
+
     escolhendoCadeiras(
         cadeiraEscolhida, 
         'modelo__cor-verde', 
@@ -126,12 +126,17 @@ function adicionarCadeira(cadeiraEscolhida) {
     atualizarPreco();
 }
 
-function resetarCadeira(cadeiraEscolhida) {
-    const buscarCadeira = listaCadeirasAdicionadas.indexOf(cadeiraEscolhida);
+function procurarPorCadeiraRemovida(lista, cadeiraEscolhida) {
+    const buscarCadeira = lista.indexOf(cadeiraEscolhida); 
 
-    if (buscarCadeira > -1) {
-        listaCadeirasAdicionadas.splice(buscarCadeira, 1);
+    if (buscarCadeira != -1) {
+        lista.splice(buscarCadeira, 1);
     }
+} 
+
+function resetarCadeira(cadeiraEscolhida) {
+    procurarPorCadeiraRemovida(listaCadeirasAdicionadas, cadeiraEscolhida);
+    procurarPorCadeiraRemovida(listaCadeirasCompradas, cadeiraEscolhida);
 
     escolhendoCadeiras(
         cadeiraEscolhida, 
@@ -152,10 +157,17 @@ function escolhendoCadeiras(cadeiraEscolhida, modeloRemocao, modeloAdicionar, no
     elementoCadeiraClasse.add(modeloAdicionar);
 
     elementoCadeira.removeAttribute('onclick');
-    elementoCadeira.setAttribute('onclick', `${nomeFuncao}(${cadeiraEscolhida})`);
 
-    elementoAssentoEscolhido.textContent = 
-        `Assento(s): ${listaCadeirasAdicionadas.join(', ')}`;
+    if (nomeFuncao != 'indisponivel') {
+        elementoCadeira.setAttribute('onclick', `${nomeFuncao}(${cadeiraEscolhida})`);
+    }
+
+    if (listaCadeirasAdicionadas.length === 0) {
+        elementoAssentoEscolhido.textContent = 'Nenhum assento escolhido.';
+    } else {
+        elementoAssentoEscolhido.textContent = 
+            `Assento(s): ${listaCadeirasAdicionadas.join(', ')}`;
+    }
 }
 
 function verificarListaCadeiras() {

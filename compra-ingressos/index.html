@@ -12,13 +12,13 @@
             padding: 1rem;
         }
 
-        #elemento-cadeiras div {
+        .cadeiras .modelo__cor-verde, .cadeiras .modelo__cor-vermelha {
             cursor: pointer;
         }
 
-        .conteudo__bloqueio {
-            opacity: 0.5;
+        .cadeiras .modelo__cor-cinza {
             cursor: not-allowed;
+            opacity: 0.5;
         }
 
         @media screen and (max-width: 428px) {
@@ -65,7 +65,7 @@
                 <span class="conteudo__destaque" id="elemento-preco-compra">0</span>
             </p>
 
-            <div class="modelo__horizontal modelo__centralizado modelo__quebra" id="elemento-cadeiras"></div>
+            <div class="cadeiras modelo__horizontal modelo__centralizado modelo__quebra" id="elemento-cadeiras"></div>
 
             <p class="conteudo__texto">
                 Preço do ingresso: R$ 
