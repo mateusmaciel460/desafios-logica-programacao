@@ -128,3 +128,9 @@ a {
         padding: 2rem 1rem;
     }
 }
+
+@media screen and (max-width: 428px) {
+    .conteudo__caixa {
+        width: 100%;
+    }
+}
